@@ -1,0 +1,6 @@
+-j "org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer!*completion*"
+-j "org.eclipse.jdt.ls.core.internal.handlers.CompletionHandler!*computeContentAssist*"
+-j "org.eclipse.jdt.ls.core.internal.JDTUtils!*resolveCompilationUnit*"
+-j "org.eclipse.jdt.ls.core.internal.contentassist.CompletionProposalRequestor!*getCompletionItems*"
+-j "org.eclipse.jdt.internal.core.CompilationUnit!*codeComplete*"
+-j "org.eclipse.jdt.internal.core.Openable!*codeComplete*"

@@ -23,13 +23,16 @@ public class LanguageServer implements IApplication {
 
 	@Override
 	public Object start(IApplicationContext context) throws Exception {
+			java.nio.file.Files.write(java.nio.file.Paths.get(System.getProperty("user.home"), "tmp/foo.log"), "before startLanguageServer\n".getBytes(), java.nio.file.StandardOpenOption.APPEND);
+
 
     JavaLanguageServerPlugin.startLanguageServer(this);
+		JavaLanguageServerPlugin.logInfo("after startLanguageServer foo");
     synchronized(waitLock){
           while (!shutdown) {
             try {
               context.applicationRunning();
-              JavaLanguageServerPlugin.logInfo("Main thread is waiting");
+              JavaLanguageServerPlugin.logInfo("Main thread is waiting 222");
               waitLock.wait();
             } catch (InterruptedException e) {
               JavaLanguageServerPlugin.logException(e.getMessage(), e);

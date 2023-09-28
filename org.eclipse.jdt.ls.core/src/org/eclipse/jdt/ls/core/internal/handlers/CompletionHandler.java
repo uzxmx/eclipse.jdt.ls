@@ -160,16 +160,20 @@ public class CompletionHandler{
 
 				};
 				try {
-					if (isIndexEngineEnabled()) {
+					long startTime = System.currentTimeMillis();
+					// if (isIndexEngineEnabled()) {
 						unit.codeComplete(offset, collector, subMonitor);
-					} else {
-						ModelBasedCompletionEngine.codeComplete(unit, offset, collector, DefaultWorkingCopyOwner.PRIMARY, subMonitor);
-					}
+					// } else {
+						// ModelBasedCompletionEngine.codeComplete(unit, offset, collector, DefaultWorkingCopyOwner.PRIMARY, subMonitor);
+					// }
 					proposals.addAll(collector.getCompletionItems());
+					try { java.nio.file.Files.write(java.nio.file.Paths.get(System.getProperty("user.home"), "tmp/foo.log"), String.format("time: %d\n", System.currentTimeMillis() - startTime).getBytes(), java.nio.file.StandardOpenOption.APPEND); } catch(Exception e) {}
 					if (isSnippetStringSupported() && !UNSUPPORTED_RESOURCES.contains(unit.getResource().getName())) {
 						proposals.addAll(SnippetCompletionProposal.getSnippets(unit, collector.getContext(), subMonitor));
+					try { java.nio.file.Files.write(java.nio.file.Paths.get(System.getProperty("user.home"), "tmp/foo.log"), String.format("time: %d\n", System.currentTimeMillis() - startTime).getBytes(), java.nio.file.StandardOpenOption.APPEND); } catch(Exception e) {}
 					}
 					proposals.addAll(new JavadocCompletionProposal().getProposals(unit, offset, collector, subMonitor));
+					try { java.nio.file.Files.write(java.nio.file.Paths.get(System.getProperty("user.home"), "tmp/foo.log"), String.format("time: %d\n", System.currentTimeMillis() - startTime).getBytes(), java.nio.file.StandardOpenOption.APPEND); } catch(Exception e) {}
 				} catch (OperationCanceledException e) {
 					monitor.setCanceled(true);
 				}

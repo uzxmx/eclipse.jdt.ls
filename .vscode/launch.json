@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "jdt.ls.socket-stream.launch",
+            "request": "launch",
+            "mainClass": "org.eclipse.equinox.launcher.Main",
+            "projectName": "org.eclipse.jdt.ls.core",
+            "classPaths": [
+                "/Users/xmx/.vscode/extensions/redhat.java-1.5.0/server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
+            ],
+            "args": [
+                "-application",
+                "org.eclipse.jdt.ls.core.id1",
+                "-data",
+                "/Users/xmx/Library/Application Support/Code/User/workspaceStorage/8c7b8bb41733ada472ea0fc0e59abbff/redhat.java/jdt_ws/../runtime-JDT-LS",
+                "-configuration",
+                "file:/Users/xmx/Library/Application Support/Code/User/workspaceStorage/8c7b8bb41733ada472ea0fc0e59abbff/redhat.java/jdt_ws/.metadata/.plugins/org.eclipse.pde.core/jdt.ls.socket-stream/",
+                "-dev",
+                "file:/Users/xmx/Library/Application Support/Code/User/workspaceStorage/8c7b8bb41733ada472ea0fc0e59abbff/redhat.java/jdt_ws/.metadata/.plugins/org.eclipse.pde.core/jdt.ls.socket-stream/dev.properties",
+                "-os",
+                "macosx",
+                "-ws",
+                "cocoa",
+                "-arch",
+                "x86_64",
+                "-nl",
+                "en_CN",
+                "-consoleLog"
+            ],
+            "vmArgs": [
+                "-Djava.import.generatesMetadataFilesAtProjectRoot=false"
+            ],
+            "env": {
+                "CLIENT_HOST": "127.0.0.1",
+                "socket.stream.debug": "true",
+                "CLIENT_PORT": "5036"
+            }
+        }
+    ]
+}

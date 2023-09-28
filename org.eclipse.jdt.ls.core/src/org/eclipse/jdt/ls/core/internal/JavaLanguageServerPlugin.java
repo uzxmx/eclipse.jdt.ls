@@ -376,7 +376,10 @@ public class JavaLanguageServerPlugin extends Plugin {
 		} else {
 			protocol = new JDTLanguageServer(projectsManager, preferenceManager);
 		}
+
+			java.nio.file.Files.write(java.nio.file.Paths.get(System.getProperty("user.home"), "tmp/foo.log"), ("Platform.inDebugMode() " + Platform.inDebugMode() + " Platform.inDevelopmentMode() " + Platform.inDevelopmentMode() + "\n").getBytes(), java.nio.file.StandardOpenOption.APPEND);
 		if (JDTEnvironmentUtils.inSocketStreamDebugMode()) {
+			java.nio.file.Files.write(java.nio.file.Paths.get(System.getProperty("user.home"), "tmp/foo.log"), "inSocketStreamDebugMode\n".getBytes(), java.nio.file.StandardOpenOption.APPEND);
 			String host = JDTEnvironmentUtils.getClientHost();
 			Integer port = JDTEnvironmentUtils.getClientPort();
 			InetSocketAddress inetSocketAddress = new InetSocketAddress(host, port);
@@ -391,6 +394,7 @@ public class JavaLanguageServerPlugin extends Plugin {
 				throw new RuntimeException("Error when opening a socket channel at " + host + ":" + port + ".", e);
 			}
 		} else {
+			java.nio.file.Files.write(java.nio.file.Paths.get(System.getProperty("user.home"), "tmp/foo.log"), "ConnectionStreamFactory\n".getBytes(), java.nio.file.StandardOpenOption.APPEND);
 			ConnectionStreamFactory connectionFactory = new ConnectionStreamFactory();
 			InputStream in = connectionFactory.getInputStream();
 			OutputStream out = connectionFactory.getOutputStream();
